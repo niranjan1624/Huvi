@@ -3,7 +3,6 @@ package com.huvi.tracking.Services;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.location.Location;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -26,13 +25,12 @@ public class LocationSenderService extends Service implements GoogleApiClient.Co
     private LocationRequest mLocationRequest;
     private GoogleApiClient mGoogleApiClient;
     private Context mContext = null;
-    SharedPreferences prefs;
     static Location mLocation;
     // The minimum distance to change Updates in meters
-    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10;//10; // 10 meters
+    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; // 10 meters
 
     // The minimum time between updates in milliseconds
-    private static final long MIN_TIME_BW_UPDATES = 1000 * 20 * 1;//1000 * 10 * 1; // 10 seconds
+    private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 5;// 5 minutes
 
     public LocationSenderService() {
 

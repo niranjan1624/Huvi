@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.huvi.tracking.R;
+import com.huvi.tracking.model.SMS;
 import com.tuenti.smsradar.Sms;
 import com.tuenti.smsradar.SmsListener;
 import com.tuenti.smsradar.SmsRadar;
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("DEBUG_SENT", sms.getMsg());
                 messageStr = messageStr + "\n\n" + sms.getAddress() + " : OUTGOING \n" + sms.getMsg();
                 helloWorld.setText(messageStr);
+                SMS sms1 = new SMS(sms);
+                sms1.save();
             }
 
             @Override
@@ -45,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("DEBUG_INCOME", sms.getMsg());
                 messageStr = messageStr + "\n\n" + sms.getAddress() + " : INCOMING \n" + sms.getMsg();
                 helloWorld.setText(messageStr);
+                SMS sms1 = new SMS(sms);
+                sms1.save();
             }
         });
     }
